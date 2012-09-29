@@ -250,11 +250,11 @@ form.addEventListener('submit',function(e){
 		"subject":$$('[name=subject]', document.body)[0].value,
 		"message":$$('[name=message]', document.body)[0].value,
 		"imagefile":arquivo,
-		"spoiler":($$('[name=spoiler]', document.body)[0] != undefined) ? $$('[name=spoiler]', document.body)[0].value : '',
 		"embed":($$('[name=embed]', document.body)[0] != undefined) ? $$('[name=embed]', document.body)[0].value : '',
 		"embedtype":($$('[name=embedtype]', document.body)[0] != undefined) ? $$('[name=embedtype]', document.body)[0].value : '',
 		"postpassword":$$('[name=postpassword]', document.body)[0].value
 	});
+	if ($$('[name=spoiler]', document.body)[0] != undefined && $$('[name=spoiler]', document.body)[0].checked) formulario.append('spoiler', $$('[name=spoiler]', document.body)[0].value);
 	e.preventDefault();
 	var r = new XMLHttpRequest();
 	r.open('post', form.action, true);
