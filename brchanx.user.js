@@ -115,8 +115,8 @@
 (function() {
 
 var versaoatual = '1.80b';
-var linkvchecker = 'http://userscripts.org/scripts/source/149138.user.js';
-var linkscript = 'http://userscripts.org/scripts/source/147517.user.js';
+var linkvchecker = 'https://raw.github.com/lolikun/BRchan-X/master/stable/latest.js';
+var linkscript = 'https://raw.github.com/lolikun/BRchan-X/master/stable/brchanx.user.js';
 
 var ConfigX, Conf;
 
