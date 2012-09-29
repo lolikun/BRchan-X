@@ -1,21 +1,21 @@
 BRchan-X
 ========
 
-DESCRIÇÃO
+# DESCRIÇÃO
 
  - Script para o brchan com diversas funcionalidades que melhoram a usabilidade
 
-CONTRIBUIÇÕES
+# CONTRIBUIÇÕES
 
  - lolikun - Novas implementações
 
-TODO
+# TODO
 
  - Quotes em cascata
  - Diálogos movíveis
  - Deletar posts sem recarregar a página
  
-CRÉDITOS
+# CRÉDITOS
 
  - aeosynth - Criação do 4chan X, no qual várias funcionalidades foram baseadas
  - mayhem - Atual mantedor do 4chan X
