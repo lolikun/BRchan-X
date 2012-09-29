@@ -1,0 +1,1 @@
+postMessage({versao:'1.80b'},'*')
