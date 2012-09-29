@@ -115,8 +115,8 @@
 (function() {
 
 var versaoatual = '1.80b';
-var linkvchecker = 'http://raw.github.com/lolikun/BRchan-X/master/stable/latest.js';
-var linkscript = 'http://raw.github.com/lolikun/BRchan-X/master/stable/brchanx.user.js';
+var linkvchecker = 'https://raw.github.com/lolikun/BRchan-X/master/stable/latest.js';
+var linkscript = 'https://raw.github.com/lolikun/BRchan-X/master/stable/brchanx.user.js';
 
 var ConfigX, Conf;
 
@@ -999,9 +999,15 @@ if (GM_getValue('Atualização automática', Conf['Atualização automática']) && par
 
 GM_setValue('ultimaAtualizacao', Date.now().toString());
 window.addEventListener('message', verificaVersao);
-var script = document.createElement('script');
-script.src=linkvchecker;
-document.body.appendChild(script);
+var r = GM_xmlhttpRequest({
+	method: 'GET', 
+	url: linkvchecker,
+	onload: function(x) {
+		var script = document.createElement('script');
+		script.innerHTML = x.responseText;
+		document.body.appendChild(script);
+	}
+});
 
 }
 var substring = location.pathname.substring(1).split('/');

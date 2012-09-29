@@ -261,7 +261,8 @@ GM_addStyle('\
 		width: 70%;\
 	}\
 	div.postarea [type=submit] {\
-		width: 25%;\
+		width: 23%;\
+		margin: 1%;\
 		border: 1px solid #F3F3F3;\
 		-moz-box-shadow: 0 0 0 1px #707070;\
 		-webkit-box-shadow: 0 0 0 1px #707070;\
@@ -353,13 +354,14 @@ form.addEventListener('submit',function(e){
 
 function hideReply() {
 
-clearReply();
 $$('div.postarea', document.body)[0].style.display='none';
+document.body.onkeypress = function(e) { if (e.keyCode == 13) { showReply(); return false } };
 
 }
 
 function showReply() {
 
+document.body.onkeypress = '';
 $$('div.postarea', document.body)[0].style.display='block';
 $$('[name=message]', document.body)[0].focus();
 
@@ -997,9 +999,15 @@ if (GM_getValue('Atualização automática', Conf['Atualização automática']) && par
 
 GM_setValue('ultimaAtualizacao', Date.now().toString());
 window.addEventListener('message', verificaVersao);
-var script = document.createElement('script');
-script.src=linkvchecker;
-document.body.appendChild(script);
+var r = GM_xmlhttpRequest({
+	method: 'GET', 
+	url: linkvchecker,
+	onload: function(x) {
+		var script = document.createElement('script');
+		script.innerHTML = x.responseText;
+		document.body.appendChild(script);
+	}
+});
 
 }
 var substring = location.pathname.substring(1).split('/');

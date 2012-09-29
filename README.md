@@ -1,18 +1,19 @@
 BRchan-X
 ========
 
- CONTRIBUIÇÕES
+CONTRIBUIÇÕES
 
- - Miofag
- - Lolikun
+ - Miofag - Adaptação do 4chan X updater para o kusaba
+ - Lolikun - Novas implementações
 
 
- TODO
+TODO
 
  - Quotes em cascata
+ - Diálogos movíveis
+ - Deletar posts sem recarregar a página
 
-
- CHANGELOG
+CHANGELOG
 
  1.80b
  - Melhorias no estilo do quick reply
@@ -83,4 +84,5 @@ BRchan-X
 
 
 Modificado a partir do 4chan X Updater (aeosynth)
+
 Algumas funcionalidades foram baseadas no 4chan X (Mayhem)
