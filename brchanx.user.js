@@ -183,6 +183,7 @@ resposta.documentElement.innerHTML = html;
 if (resposta.getElementsByTagName('h2')[0] != undefined) {
 	$$('#errorspan', document.body)[0].textContent=resposta.getElementsByTagName('h2')[0].textContent;
 } else {
+	clearReply();
 	hideReply();
 }
 
@@ -353,7 +354,6 @@ form.addEventListener('submit',function(e){
 
 function hideReply() {
 
-clearReply();
 $$('div.postarea', document.body)[0].style.display='none';
 document.body.onkeypress = function(e) { if (e.keyCode == 13) { showReply(); return false } };
 
