@@ -115,8 +115,8 @@
 (function() {
 
 var versaoatual = '1.80b';
-var linkvchecker = 'https://raw.github.com/lolikun/BRchan-X/master/stable/latest.js';
-var linkscript = 'https://raw.github.com/lolikun/BRchan-X/master/stable/brchanx.user.js';
+var linkvchecker = 'http://raw.github.com/lolikun/BRchan-X/master/stable/latest.js';
+var linkscript = 'http://raw.github.com/lolikun/BRchan-X/master/stable/brchanx.user.js';
 
 var ConfigX, Conf;
 
@@ -183,7 +183,6 @@ resposta.documentElement.innerHTML = html;
 if (resposta.getElementsByTagName('h2')[0] != undefined) {
 	$$('#errorspan', document.body)[0].textContent=resposta.getElementsByTagName('h2')[0].textContent;
 } else {
-	clearReply();
 	hideReply();
 }
 
@@ -261,7 +260,8 @@ GM_addStyle('\
 		width: 70%;\
 	}\
 	div.postarea [type=submit] {\
-		width: 25%;\
+		width: 23%;\
+		margin: 1%;\
 		border: 1px solid #F3F3F3;\
 		-moz-box-shadow: 0 0 0 1px #707070;\
 		-webkit-box-shadow: 0 0 0 1px #707070;\
@@ -355,11 +355,13 @@ function hideReply() {
 
 clearReply();
 $$('div.postarea', document.body)[0].style.display='none';
+document.body.onkeypress = function(e) { if (e.keyCode == 13) { showReply(); return false } };
 
 }
 
 function showReply() {
 
+document.body.onkeypress = '';
 $$('div.postarea', document.body)[0].style.display='block';
 $$('[name=message]', document.body)[0].focus();
 
