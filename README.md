@@ -1,4 +1,4 @@
-BRchan-X
+Clique [AQUI](http://lolikun.github.com/) para pegar o BRchan X
 ========
 
 # DESCRIÇÃO
@@ -8,6 +8,7 @@ BRchan-X
 # CONTRIBUIÇÕES
 
  - lolikun - Novas implementações
+ - yuifag - Criação do banner e do estilo da página do script
 
 # TODO
 
