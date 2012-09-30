@@ -254,6 +254,7 @@ form.addEventListener('submit',function(e){
 		"embedtype":($$('[name=embedtype]', document.body)[0] != undefined) ? $$('[name=embedtype]', document.body)[0].value : '',
 		"postpassword":$$('[name=postpassword]', document.body)[0].value
 	});
+	arquivo = null;
 	if ($$('[name=spoiler]', document.body)[0] != undefined && $$('[name=spoiler]', document.body)[0].checked) formulario.append('spoiler', $$('[name=spoiler]', document.body)[0].value);
 	e.preventDefault();
 	var r = new XMLHttpRequest();
