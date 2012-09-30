@@ -297,7 +297,8 @@ function adicionaEventoQuote() {
 var a = document.getElementsByTagName('a');
 for (i=0;i<a.length;i++) {
 	if (a[i].getAttribute('onclick') && a[i].getAttribute('onclick').substring(0,13) == 'return insert') {
-		a[i].addEventListener('click', showReply);
+		a[i].setAttribute('onclick', '');
+		a[i].addEventListener('click', function() { showReply(); unsafeWindow.insert('>>' + this.textContent + '\n') });
 	}
 }
 
