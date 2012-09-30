@@ -433,7 +433,7 @@ dialogo.id = 'opcoes';
 dialogo.className = 'reply dialog';
 dialogo.innerHTML = '\
 	<div id="barraopcoes">\
-		<div id="fonte" style="float:right"><a target="_blank" href="http://userscripts.org/scripts/show/147517">BRchan X</a></div>\
+		<div id="fonte" style="float:right"><a target="_blank" href="http://lolikun.github.com/">BRchan X</a></div>\
 		<div><label for="abaconfig">Configurações</label> | <label for="abasobre">Sobre</label></div>\
 	</div>\
 	<hr>\
@@ -442,7 +442,7 @@ dialogo.innerHTML = '\
 			<div class="divprincipal"></div>\
 		<input type="radio" name="aba" hidden id="abasobre">\
 			<div>BRchan X versão ' + versaoatual + '<br>\
-			Baseado no 4chan X updater (aeosynth)<br>\
+			Baseado no 4chan X (aeosynth, mayhem)<br>\
 			<ul>Funcionalidades:\
 				<li>- Thread updater</li>\
 				<li>- Hide em posts específicos</li>\
@@ -456,7 +456,6 @@ dialogo.innerHTML = '\
 			<ul>Contribuições:\
 				<li>- Lolikun - Novas implementações</li>\
 			</ul>\
-			Caso encontre algum bug favor notificar na página do userscripts\
 			</div>\
 	</div>';
 
