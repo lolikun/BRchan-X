@@ -1,7 +1,7 @@
-// ==UserScript==
+Ôªø// ==UserScript==
 // @name           BRchan X 
 // @namespace      Lolikun
-// @description    Faz update da thread. Agora com backlinks, gifs animadas, hide autom·tico de posts com sage e expandir imagens ao clicar.
+// @description    Faz update da thread. Agora com backlinks, gifs animadas, hide autom√°tico de posts com sage e expandir imagens ao clicar.
 // @version        1.81
 // @include        http://*.brchan.org/*
 // ==/UserScript==
@@ -39,11 +39,11 @@ var ConfigX, Conf;
 ConfigX = {
 	principal: {
 		Funcionalidades: {
-			'AtualizaÁ„o autom·tica': [true, 'Checa se existe uma vers„o mais atual do script'],
-			'Quick reply': [true, 'Adiciona um formul·rio de postagem flutuante'],
-			'Texto no cat·logo': [true, 'Adiciona o texto das threads no cat·logo'],
+			'Atualiza√ß√£o autom√°tica': [true, 'Checa se existe uma vers√£o mais atual do script'],
+			'Quick reply': [true, 'Adiciona um formul√°rio de postagem flutuante'],
+			'Texto no cat√°logo': [true, 'Adiciona o texto das threads no cat√°logo'],
 			'Animar GIFs': [true, 'Anima automaticamente as thumbs de imagens do tipo GIF'],
-			'Expans„o de imagens': [true, 'Expande imagens no clique (com fit screen)'],
+			'Expans√£o de imagens': [true, 'Expande imagens no clique (com fit screen)'],
 			'Adicionar backlinks': [true, 'Adiciona backlinks para os posts quotados'],
 			'Autonoko': [true, 'Adiciona noko automaticamente ao campo de email']
 		}
@@ -54,7 +54,7 @@ Conf = {};
 
 function verificaVersao(e) {
 
-if (e.data.versao && e.data.versao != versaoatual && confirm('BRchan X: Existe uma nova vers„o disponÌvel. VocÍ deseja atualizar?')) {
+if (e.data.versao && e.data.versao != versaoatual && confirm('BRchan X: Existe uma nova vers√£o dispon√≠vel. Voc√™ deseja atualizar?')) {
 	window.location=linkscript;
 }
 
@@ -107,7 +107,7 @@ if (resposta.getElementsByTagName('h2')[0] != undefined) {
 
 function onerrorReply() {
 
-$$('#errorspan', document.body)[0].textContent='Problema na conex„o com o servidor.';
+$$('#errorspan', document.body)[0].textContent='Problema na conex√£o com o servidor.';
 
 }
 
@@ -415,7 +415,7 @@ deletaOpcoes.call(document.getElementById('overlay'));
 var a = document.getElementsByTagName('a');
 
 for (var i=0;i<a.length;i++) {
-	if (a[i].title == 'TÛpicos observados.') {		
+	if (a[i].title == 'T√≥picos observados.') {		
 		var textoOpcoes = document.createElement('span');
 		textoOpcoes.innerHTML = '[<a href="javascript:;" id="linkOpcoes">BRchan X</a>]';
 		
@@ -436,27 +436,27 @@ dialogo.className = 'reply dialog';
 dialogo.innerHTML = '\
 	<div id="barraopcoes">\
 		<div id="fonte" style="float:right"><a target="_blank" href="http://lolikun.github.com/">BRchan X</a></div>\
-		<div><label for="abaconfig">ConfiguraÁıes</label> | <label for="abasobre">Sobre</label></div>\
+		<div><label for="abaconfig">Configura√ß√µes</label> | <label for="abasobre">Sobre</label></div>\
 	</div>\
 	<hr>\
 	<div id="areaopcoes">\
 		<input type="radio" name="aba" hidden id="abaconfig" checked>\
 			<div class="divprincipal"></div>\
 		<input type="radio" name="aba" hidden id="abasobre">\
-			<div>BRchan X vers„o ' + versaoatual + '<br>\
+			<div>BRchan X vers√£o ' + versaoatual + '<br>\
 			Baseado no 4chan X (aeosynth, mayhem)<br>\
 			<ul>Funcionalidades:\
 				<li>- Thread updater</li>\
-				<li>- Hide em posts especÌficos</li>\
-				<li>- Hide autom·tico em posts com sage para ser usado em casos de sagebomb (habilit·vel na parte inferior da p·gina)</li>\
-				<li>- AnimaÁ„o de GIFs</li>\
+				<li>- Hide em posts espec√≠ficos</li>\
+				<li>- Hide autom√°tico em posts com sage para ser usado em casos de sagebomb (habilit√°vel na parte inferior da p√°gina)</li>\
+				<li>- Anima√ß√£o de GIFs</li>\
 				<li>- Quote backlinks</li>\
-				<li>- Expans„o de imagens no clique com fit screen</li>\
+				<li>- Expans√£o de imagens no clique com fit screen</li>\
 				<li>- Autonoko</li>\
 				<li>- Senha permanente</li>\
 			</ul>\
-			<ul>ContribuiÁıes:\
-				<li>- Lolikun - Novas implementaÁıes</li>\
+			<ul>Contribui√ß√µes:\
+				<li>- Lolikun - Novas implementa√ß√µes</li>\
 			</ul>\
 			</div>\
 	</div>';
@@ -909,9 +909,9 @@ return 0;
   };
   AEOS.init();
   
-//modificaÁıes aplicadas antes do primeiro update
-//essas modificaÁıes ser„o aplicadas mesmo que n„o esteja dentro de uma thread
-if (GM_getValue('AtualizaÁ„o autom·tica', Conf['AtualizaÁ„o autom·tica']) && parseInt(GM_getValue('ultimaAtualizacao',0), 10) < Date.now() - (6 * 1000 * 60 * 60)) {
+//modifica√ß√µes aplicadas antes do primeiro update
+//essas modifica√ß√µes ser√£o aplicadas mesmo que n√£o esteja dentro de uma thread
+if (GM_getValue('Atualiza√ß√£o autom√°tica', Conf['Atualiza√ß√£o autom√°tica']) && parseInt(GM_getValue('ultimaAtualizacao',0), 10) < Date.now() - (6 * 1000 * 60 * 60)) {
 
 GM_setValue('ultimaAtualizacao', Date.now().toString());
 window.addEventListener('message', verificaVersao);
@@ -933,10 +933,10 @@ if ((substring.length == 2 && substring[1] == '') || (substring.length > 1 && su
 	if (GM_getValue('Adicionar backlinks', Conf['Adicionar backlinks'])) updateBackLinks();
 	adicionaHide();
 	adicionaCheckbox();
-	if (GM_getValue('Expans„o de imagens', Conf['Expans„o de imagens'])) expandeOnClick();
+	if (GM_getValue('Expans√£o de imagens', Conf['Expans√£o de imagens'])) expandeOnClick();
 	trocaOnClick();
 	if (GM_getValue('Autonoko', Conf['Autonoko'])) document.getElementsByName("em", "input")[0].value = "noko";
-} else if (substring.length > 1 && substring[1] == "catalog.html" &&GM_getValue('Texto no cat·logo', Conf['Texto no cat·logo'])) insereTextoCatalogo();
+} else if (substring.length > 1 && substring[1] == "catalog.html" &&GM_getValue('Texto no cat√°logo', Conf['Texto no cat√°logo'])) insereTextoCatalogo();
   
   GM_addStyle('\
     #updater {\
@@ -1143,7 +1143,7 @@ if ((substring.length == 2 && substring[1] == '') || (substring.length > 1 && su
         document.title = document.title.replace(/\d+/, unread.length);
       }
     }
-	//modificaÁıes aplicadas a cada update
+	//modifica√ß√µes aplicadas a cada update
     if (GM_getValue('Adicionar backlinks', Conf['Adicionar backlinks'])) updateBackLinks();
 	if (GM_getValue('Animar GIFs', Conf['Animar GIFs'])) animaGifs();
 	if(window.navigator.vendor.match(/Google/)) {
@@ -1153,7 +1153,7 @@ if ((substring.length == 2 && substring[1] == '') || (substring.length > 1 && su
 	}
 	adicionaHide();
 	escondeSage(true);
-	if (GM_getValue('Expans„o de imagens', Conf['Expans„o de imagens'])) expandeOnClick();
+	if (GM_getValue('Expans√£o de imagens', Conf['Expans√£o de imagens'])) expandeOnClick();
 	trocaOnClick();
 	criaNumeroPosts();
 	if (GM_getValue('Quick reply', Conf['Quick reply'])) adicionaEventoQuote();
@@ -1331,8 +1331,8 @@ if ((substring.length == 2 && substring[1] == '') || (substring.length > 1 && su
   };
     
   if (substring.length > 1 && substring[1] == "res") {
-	//modificaÁıes aplicadas antes do primeiro update
-	//essas modificaÁıes sÛ ser„o aplicadas se estiver dentro de uma thread
+	//modifica√ß√µes aplicadas antes do primeiro update
+	//essas modifica√ß√µes s√≥ ser√£o aplicadas se estiver dentro de uma thread
 	atualizaTitulo();
 	criaNumeroPosts();
 	if (GM_getValue('Quick reply', Conf['Quick reply'])) {
