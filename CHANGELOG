@@ -1,5 +1,11 @@
 CHANGELOG
 
+1.81a
+ - Corrigido o número total de imagens no /bairro/
+ - Corrigido o problema onde posts sem imagem precedidos por posts com imagem eram enviados com a imagem do post anterior
+ - Corrigido o foco ao quotar alguém com o QR fechado
+ - Trocada a codificação para UTF-8
+
 1.81
  - Migração para o github
  - Correção do campo spoiler

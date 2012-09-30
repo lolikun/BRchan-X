@@ -2,7 +2,7 @@
 // @name           BRchan X 
 // @namespace      Lolikun
 // @description    Faz update da thread. Agora com backlinks, gifs animadas, hide automático de posts com sage e expandir imagens ao clicar.
-// @version        1.81
+// @version        1.81a
 // @include        http://*.brchan.org/*
 // ==/UserScript==
 
@@ -30,7 +30,7 @@
 
 (function() {
 
-var versaoatual = '1.81';
+var versaoatual = '1.81a';
 var linkvchecker = 'https://raw.github.com/lolikun/BRchan-X/stable/latest.js';
 var linkscript = 'https://raw.github.com/lolikun/BRchan-X/stable/brchanx.user.js';
 
