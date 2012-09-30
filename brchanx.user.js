@@ -271,6 +271,7 @@ form.addEventListener('submit',function(e){
 function hideReply() {
 
 $$('div.postarea', document.body)[0].style.display='none';
+$$('#errorspan', document.body)[0].textContent='';
 document.body.onkeypress = function(e) { if (e.keyCode == 13) { showReply(); return false } };
 
 }
@@ -285,7 +286,6 @@ $$('[name=message]', document.body)[0].focus();
 
 function clearReply() {
 
-$$('#errorspan', document.body)[0].textContent='';
 $$('[name=message]', document.body)[0].value = null;
 $$('[name=imagefile]', document.body)[0].value = null;
 arquivo = null;
