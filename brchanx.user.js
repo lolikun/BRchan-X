@@ -393,6 +393,7 @@ function criaNumeroPosts() {
 
 var nposts = $$('td.reply', document.body).length;
 var nimgs = $$('img', document.body.getElementsByClassName('thread')[0]).length;
+if ($$('[name=board]', document.body)[0].value == 'bairro') nimgs -= (nposts + 1);
 var div = document.createElement('div');
 div.id = 'numeroposts';
 div.textContent = nposts + ' / ' + (nimgs - 1);
