@@ -8,7 +8,7 @@ Clique [AQUI](http://lolikun.github.com/) para pegar o BRchan X
 # CONTRIBUIÇÕES
 
  - lolikun - Novas implementações
- - yuifag - Criação do banner e do estilo da página do script
+ - yuifag - Criação do banner, do favicon e do estilo da página do script
 
 # TODO
 
