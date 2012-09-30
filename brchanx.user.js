@@ -34,7 +34,7 @@ var versaoatual = '1.81a';
 var linkvchecker = 'https://raw.github.com/lolikun/BRchan-X/stable/latest.js';
 var linkscript = 'https://raw.github.com/lolikun/BRchan-X/stable/brchanx.user.js';
 
-var ConfigX, Conf;
+var ConfigX, Conf, arquivo;
 
 ConfigX = {
 	principal: {
@@ -233,7 +233,6 @@ f.innerHTML = '\
 $$('div.postarea', document.body)[0].replaceChild(f, $$('#postform', document.body)[0]);  
 
 
-var arquivo;
 var img = $$('[name=imagefile]', document.body)[0];
 img.value = null;
 img.addEventListener('change', function(x){ arquivo = this.files[0] });
@@ -254,7 +253,7 @@ form.addEventListener('submit',function(e){
 		"embedtype":($$('[name=embedtype]', document.body)[0] != undefined) ? $$('[name=embedtype]', document.body)[0].value : '',
 		"postpassword":$$('[name=postpassword]', document.body)[0].value
 	});
-	arquivo = null;
+	
 	if ($$('[name=spoiler]', document.body)[0] != undefined && $$('[name=spoiler]', document.body)[0].checked) formulario.append('spoiler', $$('[name=spoiler]', document.body)[0].value);
 	e.preventDefault();
 	var r = new XMLHttpRequest();
@@ -289,6 +288,7 @@ function clearReply() {
 $$('#errorspan', document.body)[0].textContent='';
 $$('[name=message]', document.body)[0].value = null;
 $$('[name=imagefile]', document.body)[0].value = null;
+arquivo = null;
 
 }
 
