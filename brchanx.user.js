@@ -298,7 +298,14 @@ var a = document.getElementsByTagName('a');
 for (i=0;i<a.length;i++) {
 	if (a[i].getAttribute('onclick') && a[i].getAttribute('onclick').substring(0,13) == 'return insert') {
 		a[i].setAttribute('onclick', '');
-		a[i].addEventListener('click', function() { showReply(); unsafeWindow.insert('>>' + this.textContent + '\n') });
+		a[i].addEventListener('click', function() { 
+			showReply(); 
+			if(window.navigator.vendor.match(/Google/)) {
+				location.href="javascript:insert('>>' + this.textContent + '\n')";
+			} else {
+				unsafeWindow.insert('>>' + this.textContent + '\n');
+			}
+		});
 	}
 }
 
@@ -1148,7 +1155,7 @@ if ((substring.length == 2 && substring[1] == '') || (substring.length > 1 && su
     if (GM_getValue('Adicionar backlinks', Conf['Adicionar backlinks'])) updateBackLinks();
 	if (GM_getValue('Animar GIFs', Conf['Animar GIFs'])) animaGifs();
 	if(window.navigator.vendor.match(/Google/)) {
-		location.href="javascript:addpreviewevents()"
+		location.href="javascript:addpreviewevents()";
 	} else {
 		unsafeWindow.addpreviewevents();
 	}
