@@ -1352,8 +1352,8 @@ if ((substring.length == 2 && substring[1] == '') || (substring.length > 1 && su
 		c.send();
 		restartlessReply();
 		floatingReply();
-		if (location.href.split('#')[1] != undefined && location.href.split('#')[1].charAt(0) == 'i') showReply();
 		document.body.onkeypress = function(e) { if (e.keyCode == 13) { showReply(); return false } };
+		if (location.href.split('#')[1] != undefined && location.href.split('#')[1].charAt(0) == 'i') showReply();
 	}
     makeUpdater();
 	//window.onbeforeunload = function() {location.reload(true)};
