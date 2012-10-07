@@ -301,7 +301,7 @@ for (i=0;i<a.length;i++) {
 		a[i].addEventListener('click', function() { 
 			showReply(); 
 			if(window.navigator.vendor.match(/Google/)) {
-				location.href="javascript:insert('>>' + this.textContent + '\n')";
+				location.href="javascript:insert('>>" + this.textContent + "\n')";
 			} else {
 				unsafeWindow.insert('>>' + this.textContent + '\n');
 			}
