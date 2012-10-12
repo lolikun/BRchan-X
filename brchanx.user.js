@@ -2,7 +2,7 @@
 // @name           BRchan X 
 // @namespace      Lolikun
 // @description    Faz update da thread. Agora com backlinks, gifs animadas, hide automático de posts com sage e expandir imagens ao clicar.
-// @version        1.81a
+// @version        1.81b
 // @include        http://*.brchan.org/*
 // ==/UserScript==
 
@@ -30,7 +30,7 @@
 
 (function() {
 
-var versaoatual = '1.81a';
+var versaoatual = '1.81b';
 var linkvchecker = 'https://raw.github.com/lolikun/BRchan-X/stable/latest.js';
 var linkscript = 'https://raw.github.com/lolikun/BRchan-X/stable/brchanx.user.js';
 
@@ -41,7 +41,7 @@ ConfigX = {
 		Funcionalidades: {
 			'Atualização automática': [true, 'Checa se existe uma versão mais atual do script'],
 			'Quick reply': [true, 'Adiciona um formulário de postagem flutuante'],
-			'Texto no catálogo': [true, 'Adiciona o texto das threads no catálogo'],
+			//'Texto no catálogo': [true, 'Adiciona o texto das threads no catálogo'],
 			'Animar GIFs': [true, 'Anima automaticamente as thumbs de imagens do tipo GIF'],
 			'Expansão de imagens': [true, 'Expande imagens no clique (com fit screen)'],
 			'Adicionar backlinks': [true, 'Adiciona backlinks para os posts quotados'],
@@ -944,7 +944,7 @@ if ((substring.length == 2 && substring[1] == '') || (substring.length > 1 && su
 	if (GM_getValue('Expansão de imagens', Conf['Expansão de imagens'])) expandeOnClick();
 	trocaOnClick();
 	if (GM_getValue('Autonoko', Conf['Autonoko'])) document.getElementsByName("em", "input")[0].value = "noko";
-} else if (substring.length > 1 && substring[1] == "catalog.html" &&GM_getValue('Texto no catálogo', Conf['Texto no catálogo'])) insereTextoCatalogo();
+} //else if (substring.length > 1 && substring[1] == "catalog.html" &&GM_getValue('Texto no catálogo', Conf['Texto no catálogo'])) insereTextoCatalogo();
   
   GM_addStyle('\
     #updater {\

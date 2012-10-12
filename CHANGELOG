@@ -1,5 +1,9 @@
 CHANGELOG
 
+1.81b
+ - Corrigido o problema dos quotes aparecendo como undefined [chrome]
+ - Removido texto no catálogo por falta de compatibilidade com alterações realizadas no brchan
+
 1.81a
  - Corrigido o número total de imagens no /bairro/
  - Corrigido o problema onde posts sem imagem precedidos por posts com imagem eram enviados com a imagem do post anterior
