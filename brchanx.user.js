@@ -2,7 +2,7 @@
 // @name           BRchan X 
 // @namespace      Lolikun
 // @description    Faz update da thread. Agora com backlinks, gifs animadas, hide automático de posts com sage e expandir imagens ao clicar.
-// @version        1.81b
+// @version        1.81c
 // @include        http://*.brchan.org/*
 // ==/UserScript==
 
@@ -30,7 +30,7 @@
 
 (function() {
 
-var versaoatual = '1.81b';
+var versaoatual = '1.81c';
 var linkvchecker = 'https://raw.github.com/lolikun/BRchan-X/stable/latest.js';
 var linkscript = 'https://raw.github.com/lolikun/BRchan-X/stable/brchanx.user.js';
 
@@ -219,12 +219,12 @@ GM_addStyle('\
 var f = document.createElement('form');
 f.className='postform';
 f.id='postform';
-f.action='http://www.brchan.org/forum.php';
+f.action=$$('#postform', document.body)[0].action;
 nameExists = $$('[name=name]', document.body)[0] != undefined ? 'enabled' : 'disabled';
 embedExists = $$('[name=embed]', document.body)[0] != undefined ? '<div><input name=embed title=Embutir placeholder=Embutir class=field style="width:70%"><select name="embedtype" style="width: 30%"><option value="youtube">Youtube</option></select></div>' : '';
 spoilerExists = $$('[name=spoiler]', document.body)[0] != undefined ? '<div style="float: left"><input name="spoiler" id="spoiler" type="checkbox"><label for="spoiler">Spoiler</label></div>' : '';
 f.innerHTML = '\
-  <div><input ' + nameExists + ' name=name title=Nome placeholder=Nome class=field size=1><input value=' + $$('[name=em]', document.body)[0].value + ' name=em title=E-mail placeholder=E-mail class=field size=1><input name=subject title=Assunto placeholder=Assunto class=field size=1><input value=Responder type=submit></div>\
+  <div><input ' + nameExists + ' name=name title=Nome placeholder=Nome class=field size=1><input value="' + $$('[name=em]', document.body)[0].value + '" name=em title=E-mail placeholder=E-mail class=field size=1><input name=subject title=Assunto placeholder=Assunto class=field size=1><input value=Responder type=submit></div>\
   <div><input name="board" value="' + $$('[name=board]', document.body)[0].value + '" type="hidden"><input name="replythread" value="' + $$('[name=replythread]', document.body)[0].value + '" type="hidden"><input name="MAX_FILE_SIZE" value="' + $$('[name=MAX_FILE_SIZE]', document.body)[0].value + '" type="hidden"></div>\
   <div class=textarea><textarea name=message title=Mensagem placeholder=Mensagem class=field></textarea></div>\
   ' + embedExists + '\
@@ -238,6 +238,7 @@ img.value = null;
 img.addEventListener('change', function(x){ arquivo = this.files[0] });
 
 var form = $$('#postform', document.body)[0];
+
 form.addEventListener('submit',function(e){
 	var formulario = formData({
 		"board":$$('[name=board]', document.body)[0].value,
@@ -642,7 +643,7 @@ for (var i=0;i<reply.length;i++) {
 	var a = reply[i].getElementsByTagName('a');
 	
 	for (var k=0;k<a.length;k++) {
-		if (a[k].href == "mailto:sage") {	
+		if (a[k].href.toLowerCase() == "mailto:sage") {	
 			td = reply[i].previousElementSibling;
 			if ((atualizacao && reply[i].getElementsByTagName('blockquote')[0].style.display != "none" && document.getElementById('hidesage').checked) || !atualizacao) {
 				escondePost.call(td.getElementsByClassName('hidepost')[0]);
