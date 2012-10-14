@@ -42,7 +42,7 @@ ConfigX = {
 			'Atualização automática': [true, 'Checa se existe uma versão mais atual do script'],
 			'Quick reply': [true, 'Adiciona um formulário de postagem flutuante'],
 			//'Texto no catálogo': [true, 'Adiciona o texto das threads no catálogo'],
-			'Animar GIFs': [true, 'Anima automaticamente as thumbs de imagens do tipo GIF'],
+			'Animar GIFs': [false, 'Anima automaticamente as thumbs de imagens do tipo GIF'],
 			'Expansão de imagens': [true, 'Expande imagens no clique (com fit screen)'],
 			'Adicionar backlinks': [true, 'Adiciona backlinks para os posts quotados'],
 			'Autonoko': [true, 'Adiciona noko automaticamente ao campo de email']
