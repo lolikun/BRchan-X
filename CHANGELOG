@@ -3,6 +3,7 @@ CHANGELOG
 1.81c
  - Corrigido o problema com o campo email do QR com o autonoko desativado
  - Campo action do form do QR não é mais hardcoded
+ - Esconder sage agora detecta letras maiúsculas
 
 1.81b
  - Corrigido o problema dos quotes aparecendo como undefined [chrome]
