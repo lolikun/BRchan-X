@@ -938,7 +938,7 @@ var r = GM_xmlhttpRequest({
 
 }
 var substring = location.pathname.substring(1).split('/');
-if ((substring.length == 2 && substring[1] == '') || (substring.length > 1 && substring[1] == "res")) {
+if ((substring.length == 2 && substring[1] != "catalog.html") || (substring.length > 1 && substring[1] == "res")) {
 	criaLinkOpcoes();
 	if (GM_getValue('Animar GIFs', Conf['Animar GIFs'])) animaGifs();
 	if (GM_getValue('Adicionar backlinks', Conf['Adicionar backlinks'])) updateBackLinks();
