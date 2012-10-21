@@ -1,5 +1,10 @@
 CHANGELOG
 
+1.82
+ - Adicionada compatibilidade com o 55ch.org:
+  * esconder posts checa se existe a div utilizada e cria se não existir
+  * GETs específicos são executados apenas no brchan
+
 1.81c
  - Corrigido o problema com o campo email do QR com o autonoko desativado
  - Campo action do form do QR não é mais hardcoded

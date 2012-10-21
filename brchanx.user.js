@@ -2,8 +2,9 @@
 // @name           BRchan X 
 // @namespace      Lolikun
 // @description    Faz update da thread. Agora com backlinks, gifs animadas, hide automático de posts com sage e expandir imagens ao clicar.
-// @version        1.81c
+// @version        1.82
 // @include        http://*.brchan.org/*
+// @include        http://*55ch.org/*
 // ==/UserScript==
 
 // Copyright (c) 2010 James Campos
@@ -86,12 +87,10 @@ for( var i=0; i < 5; i++ )
 
 function onloadReply(html) {
 
-var r = new XMLHttpRequest();
-r.open('GET', 'http://www.brchan.org/usr/?mode=1&info=y', true);
-r.send();
-var x = new XMLHttpRequest();
-x.open('GET', 'http://www.brchan.org/usr/?mode=2&info=533160108131b18e6c93b7a73e4' + randstr, true);
-x.send();
+if (location.hostname == 'brchan.org') {
+	var y = new XMLHttpRequest(); y.open('GET', 'http://www.brchan.org/usr/?mode=1&info=y', true); y.send();
+	var c = new XMLHttpRequest(); c.open('GET', 'http://www.brchan.org/usr/?mode=2&info=533160108131b18e6c93b7a73e4' + randstr, true); c.send();
+}
 
 var resposta = document.implementation.createHTMLDocument('');
 resposta.documentElement.innerHTML = html;
@@ -589,6 +588,9 @@ for (var i=0;i<a.length;i++) {
 }
 
 function escondePost() {
+
+if (this.parentNode.nextElementSibling.getElementsByTagName("div")[0] === undefined) 
+	this.parentNode.nextElementSibling.innerHTML = '<div>' + this.parentNode.nextElementSibling.innerHTML + '</div>';
 
 var div = this.parentNode.nextElementSibling.getElementsByTagName("div")[0];
 
@@ -1338,19 +1340,17 @@ if ((substring.length == 2 && substring[1] == '') || (substring.length > 1 && su
     $('input[type=button]', updater).addEventListener('click', request, true);
     return document.body.appendChild(updater);
   };
-    
+
   if (substring.length > 1 && substring[1] == "res") {
 	//modificações aplicadas antes do primeiro update
 	//essas modificações só serão aplicadas se estiver dentro de uma thread
 	atualizaTitulo();
 	criaNumeroPosts();
 	if (GM_getValue('Quick reply', Conf['Quick reply'])) {
-		var y = new XMLHttpRequest();
-		y.open('GET', 'http://www.brchan.org/usr/?mode=1&info=y', true);
-		y.send();
-		var c = new XMLHttpRequest();
-		c.open('GET', 'http://www.brchan.org/usr/?mode=2&info=533160108131b18e6c93b7a73e4' + randstr, true);
-		c.send();
+		if (location.hostname == 'brchan.org') {
+			var y = new XMLHttpRequest(); y.open('GET', 'http://www.brchan.org/usr/?mode=1&info=y', true); y.send();
+			var c = new XMLHttpRequest(); c.open('GET', 'http://www.brchan.org/usr/?mode=2&info=533160108131b18e6c93b7a73e4' + randstr, true); c.send();
+		}
 		restartlessReply();
 		floatingReply();
 		document.body.onkeypress = function(e) { if (e.keyCode == 13) { showReply(); return false } };
