@@ -1,5 +1,8 @@
 CHANGELOG
 
+1.82a
+ - Corrigida a versão do script
+
 1.82
  - Adicionada compatibilidade com o 55ch.org:
   * esconder posts checa se existe a div utilizada e cria se não existir
