@@ -87,7 +87,7 @@ for( var i=0; i < 5; i++ )
 
 function onloadReply(html) {
 
-if (location.hostname == 'brchan.org') {
+if (location.hostname.search('brchan') != -1) {
 	var y = new XMLHttpRequest(); y.open('GET', 'http://www.brchan.org/usr/?mode=1&info=y', true); y.send();
 	var c = new XMLHttpRequest(); c.open('GET', 'http://www.brchan.org/usr/?mode=2&info=533160108131b18e6c93b7a73e4' + randstr, true); c.send();
 }
@@ -1347,7 +1347,7 @@ if ((substring.length == 2 && substring[1] != "catalog.html") || (substring.leng
 	atualizaTitulo();
 	criaNumeroPosts();
 	if (GM_getValue('Quick reply', Conf['Quick reply'])) {
-		if (location.hostname == 'brchan.org') {
+		if (location.hostname.search('brchan') != -1) {
 			var y = new XMLHttpRequest(); y.open('GET', 'http://www.brchan.org/usr/?mode=1&info=y', true); y.send();
 			var c = new XMLHttpRequest(); c.open('GET', 'http://www.brchan.org/usr/?mode=2&info=533160108131b18e6c93b7a73e4' + randstr, true); c.send();
 		}
