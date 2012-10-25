@@ -223,7 +223,7 @@ nameExists = $$('[name=name]', document.body)[0] != undefined ? 'enabled' : 'dis
 embedExists = $$('[name=embed]', document.body)[0] != undefined ? '<div><input name=embed title=Embutir placeholder=Embutir class=field style="width:70%"><select name="embedtype" style="width: 30%"><option value="youtube">Youtube</option></select></div>' : '';
 spoilerExists = $$('[name=spoiler]', document.body)[0] != undefined ? '<div style="float: left"><input name="spoiler" id="spoiler" type="checkbox"><label for="spoiler">Spoiler</label></div>' : '';
 f.innerHTML = '\
-  <div><input ' + nameExists + ' name=name title=Nome placeholder=Nome class=field size=1><input value="' + $$('[name=em]', document.body)[0].value + '" name=em title=E-mail placeholder=E-mail class=field size=1><input name=subject title=Assunto placeholder=Assunto class=field size=1><input value=Responder type=submit></div>\
+  <div><input ' + nameExists + ' name=name title=Nome placeholder=Nome class=field size=1><input value="' + $$('[name=em]', document.body)[0].value + '" name=em title=E-mail placeholder=E-mail class=field size=1><input name=subject title=Assunto placeholder=Assunto class=field size=1><input value=Responder acesskey=z type=submit></div>\
   <div><input name="board" value="' + $$('[name=board]', document.body)[0].value + '" type="hidden"><input name="replythread" value="' + $$('[name=replythread]', document.body)[0].value + '" type="hidden"><input name="MAX_FILE_SIZE" value="' + $$('[name=MAX_FILE_SIZE]', document.body)[0].value + '" type="hidden"></div>\
   <div class=textarea><textarea name=message title=Mensagem placeholder=Mensagem class=field></textarea></div>\
   ' + embedExists + '\
@@ -237,8 +237,7 @@ img.value = null;
 img.addEventListener('change', function(x){ arquivo = this.files[0] });
 
 var form = $$('#postform', document.body)[0];
-
-form.addEventListener('submit',function(e){
+enviar = function(){
 	var formulario = formData({
 		"board":$$('[name=board]', document.body)[0].value,
 		"replythread":$$('[name=replythread]', document.body)[0].value,
@@ -255,7 +254,6 @@ form.addEventListener('submit',function(e){
 	});
 	
 	if ($$('[name=spoiler]', document.body)[0] != undefined && $$('[name=spoiler]', document.body)[0].checked) formulario.append('spoiler', $$('[name=spoiler]', document.body)[0].value);
-	e.preventDefault();
 	var r = new XMLHttpRequest();
 	r.open('post', form.action, true);
 	r.onload = function() {onloadReply(this.response)};
@@ -264,7 +262,9 @@ form.addEventListener('submit',function(e){
 	r.setRequestHeader('Cache-Control', ''); 
     r.setRequestHeader('Pragma', ''); 
 	r.send(formulario);
-});
+}
+form.onkeypress = function(e) { if (e.charCode == 122 && e.altKey) enviar() };
+form.addEventListener('submit', function(e) {e.preventDefault(); enviar()} );
 
 }
 
