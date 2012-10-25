@@ -1,1 +1,1 @@
-postMessage({versao:'1.82a'},'*')
+postMessage({versao:'1.82b'},'*')

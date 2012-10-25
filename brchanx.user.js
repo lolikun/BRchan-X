@@ -735,6 +735,7 @@ function addBackLinks (quem, onde, tr, br) {
 			e.setAttribute('href','/' + br + '/res/' + tr + '.html#' + quem);
 			e.setAttribute('class','ref|' + br + '|' + tr + '|' + quem);
 			e.setAttribute('onclick','return highlight(\'' + quem + '\', true);');
+			e.addEventListener('click', function() { unsafeWindow.delreflinkpreview.call(this); unsafeWindow.checkhighlight() })
 			onderefl.appendChild(e);
 			return linkslen++;
 		}

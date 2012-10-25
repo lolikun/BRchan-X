@@ -1,5 +1,9 @@
 CHANGELOG
 
+1.82b
+ - Adicionado atalho alt+z para postar (o foco deve estar em algum elemento do QR)
+ - Consertado highlight nos backlinks
+
 1.82a
  - Corrigida a versão do script
  - Corrigido problema de sessão inválida no QR
