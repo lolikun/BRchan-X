@@ -406,7 +406,7 @@ if ($$('[name=board]', document.body)[0].value == 'bairro') nimgs -= (nposts + 1
 var div = document.createElement('div');
 div.id = 'numeroposts';
 div.textContent = nposts + ' / ' + (nimgs - 1);
-if (nposts >= 300) div.style.color='red';
+if (nposts >= 250) div.style.color='red';
 if (document.getElementById('numeroposts') != undefined) {
 	document.body.replaceChild(div, document.getElementById('numeroposts'));
 } else {
